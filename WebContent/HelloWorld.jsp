@@ -4,8 +4,6 @@
 <html> 
 <head>
 
-	<%@ page import="java.io.*"%>
-
    <!-- player skin -->
    <link rel="stylesheet" type="text/css"
       href="//releases.flowplayer.org/5.4.4/skin/functional.css">
@@ -40,64 +38,7 @@
 <body>
 
 	<div style="height:300px; width:100%">
-		<div style="height:200px; width:33%; background-color:#fff; display:inline-block;">
-			<form action="${pageContext.request.contextPath}/myservlet" method="post">
-			    <input type="submit" name="button1" value="Load Salesforce Data" />
-			   </form>
-			
-			<% 
-		    
-			@WebServlet("/myservlet")
-			public class MyServlet extends HttpServlet {
-
-    		@Override
-    		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        	MyClass myClass = new MyClass();
-
-	        if (request.getParameter("button1") != null) {
-	            myClass.function1(
-	            		String fName = "myfile.csv";
-	        		    String thisLine; 
-	        		    int count=0; 
-	        		    FileInputStream fis = new FileInputStream(fName);
-	        		    DataInputStream myInput = new DataInputStream(fis);
-	        		    int i=0; 
-	        		    %>
-	        		    <table>
-	        		    <%
-	        		    while ((thisLine = myInput.readLine()) != null)
-	        		   {
-	        		    String strar[] = thisLine.split(",");
-	        		    for(int j=0;j<strar.length;j++)
-	        		    {
-	        		    if(i!=0)
-	        		    {
-	        		     out.print(" " +strar[j]+ " ");
-	        		    }
-	        		    else
-	        		    {
-	        		    out.print(" <b>" +strar[j]+ "</b> ");
-	        		    }
-	        		    }
-	        		    out.println("<br>");
-	        		    i++;
-	        		    } 
-	            		);
-	        } else if (request.getParameter("button2") != null) {
-	            myClass.function2();
-	        } else if (request.getParameter("button3") != null) {
-	            myClass.function3();
-	        } else {
-	            // ???
-	        }
-
-        	request.getRequestDispatcher("/WEB-INF/some-result.jsp").forward(request, response);
-    		}
-
-			}
-		    %>
-		    </table>
-		</div>
+		<div style="height:200px; width:33%; background-color:#fff; display:inline-block;"></div>
 		<div style="height:200px; width:33%; background-color:#fff; display:inline-block;"></div>
 		<div style="height:200px; width:33%; background-color:#fff; display:inline-block;"></div>
 	</div>
@@ -107,9 +48,9 @@
       class="flowplayer no-toggle"
        data-ratio="0.416">
       <video>
-         	<source type="video/webm" src="http://stream.flowplayer.org/bauhaus/624x260.webm"/>
-			<source type="video/mp4" src="http://stream.flowplayer.org/bauhaus/624x260.mp4"/>
-			<source type="video/ogv" src="http://stream.flowplayer.org/bauhaus/624x260.ogv"/>
+         <source type="video/webm" src="http://stream.flowplayer.org/bauhaus/624x260.webm"/>
+<source type="video/mp4" src="http://stream.flowplayer.org/bauhaus/624x260.mp4"/>
+<source type="video/ogv" src="http://stream.flowplayer.org/bauhaus/624x260.ogv"/>
       </video>
       <div class="fp-playlist">
 
@@ -130,4 +71,3 @@
 
 </body>
 </html>
-
